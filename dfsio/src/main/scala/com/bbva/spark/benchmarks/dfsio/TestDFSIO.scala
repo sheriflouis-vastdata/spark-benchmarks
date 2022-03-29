@@ -59,6 +59,12 @@ object TestDFSIO extends App with LazyLogging {
 
     // set buffer size
     hadoopConf.setInt("test.io.file.buffer.size", conf.bufferSize)
+    hadoopConf.set("fs.s3a.access.key", "UTXJE0A2QE6RRZLYWAJ0")
+    hadoopConf.set("fs.s3a.secret.key", "1vM5gdhQ3PZmn1rzMkvPpxwcpCpeS8Caq7eQhgQy")
+    hadoopConf.set("fs.s3a.endpoint", "http://main.selab-avnet202.sli.vastdata.com")
+    hadoopConf.set("fs.s3a.connection.ssl.enabled", "false")
+    hadoopConf.set("fs.s3a.path.style.access", "true")
+~
 
     val analyze: (=> Stats) => Unit = measure(conf.mode, conf.resFileName)
 
